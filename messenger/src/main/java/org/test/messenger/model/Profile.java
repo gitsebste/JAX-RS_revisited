@@ -10,19 +10,30 @@ public class Profile {
 	private long id;
 	private String profileName;
 	private String lastName;
+	private String firstName;
 	private Date created;
 	
 	
 	public Profile() {
 		super();
-	}
-	public Profile(long id, String profileName, String lastName) {
-		super();
-		this.id = id;
-		this.profileName = profileName;
-		this.lastName = lastName;
 		this.created = new Date();
 	}
+
+	public Profile(String profileName, String firstName,String lastName) {
+		super();
+		this.profileName = profileName;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.created = new Date();
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -43,9 +54,6 @@ public class Profile {
 	}
 	public Date getCreated() {
 		return created;
-	}
-	public void setCreated(Date created) {
-		this.created = created;
 	}
 	
 	
