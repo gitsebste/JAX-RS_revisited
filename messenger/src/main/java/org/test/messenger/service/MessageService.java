@@ -13,8 +13,10 @@ public class MessageService {
 	private Map<Long, Message> messages = DatabaseClass.getAllMessages();
 	
 	public MessageService() {
-		addMessage(new Message(1L,"Hello World!","koushik"));
-		addMessage(new Message(2L,"Hello Jersey!","koushik"));
+		if(getAllMessages().size()==0) {
+		addMessage(new Message("Hello World!","koushik"));
+		addMessage(new Message("Hello Jersey!","koushik"));
+		}
 	}
 	
 	public List<Message> getAllMessages(){
@@ -31,7 +33,9 @@ public class MessageService {
 	}
 	
 	public Message updateMessage(Message message){
-		return messages.put(message.getId(),message);
+		Message toChange = messages.get(message.getId());
+		toChange.setMessage(message.getMessage());
+		return messages.put(toChange.getId(),toChange);
 	}
 	
 	public Message removeMessage(Long id){

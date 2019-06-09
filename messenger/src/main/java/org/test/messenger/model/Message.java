@@ -13,11 +13,11 @@ public class Message {
 		
 	public Message() {
 		super();
+		this.created = new Date();
 	}
 	
-	public Message(long id, String message, String author) {
+	public Message(String message, String author) {
 		super();
-		this.id = id;
 		this.message = message;
 		this.created = new Date();
 		this.author = author;
@@ -38,9 +38,7 @@ public class Message {
 	public Date getCreated() {
 		return created;
 	}
-	public void setCreated(Date created) {
-		this.created = created;
-	}
+ 
 	public String getAuthor() {
 		return author;
 	}
